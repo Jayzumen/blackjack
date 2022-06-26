@@ -1,3 +1,8 @@
+let player = {
+  name: "Jan-Niklas",
+  chips: 200,
+};
+
 let cards = [];
 let sum = 0;
 let hasBlackJack = false;
@@ -6,6 +11,10 @@ let message = "";
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
+
+let playerEl = document.getElementById("player-el");
+
+playerEl.textContent = player.name + ": $" + player.chips;
 
 // generate a random Card
 
@@ -28,6 +37,8 @@ function startGame() {
   let secondCard = getRandomCard();
   cards = [firstCard, secondCard];
   sum = firstCard + secondCard;
+
+  playerEl.textContent -= player.chips - 20;
 
   renderGame();
 }
